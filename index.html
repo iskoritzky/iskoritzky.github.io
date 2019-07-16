@@ -25,12 +25,7 @@ Pushwoosh.push(['init', {
 }]);
 </script>
 	
-<button onclick="Pushwoosh.subscribe()">Subscribe</button>
-<script>
- Pushwoosh.push(['onSubscribe', function(api) {
- console.log('User successfully subscribed');
- }]);
-</script>
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,7 +59,15 @@ Pushwoosh.push(['init', {
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Hello psi</h1>
 	                        <p class="hero-paragraph">press the button to subscribe for fresh shiet</p>
-	                        <div class="hero-cta"><a class="button" href="#">Subscribe</a><a class="button2" href="#">Do nothing</a></div>
+	                        <div class="hero-cta">
+					<a class="button" href="#">Subscribe1</a>
+					<button onclick="Pushwoosh.subscribe()">Subscribe2</button>
+<script>
+ Pushwoosh.push(['onSubscribe', function(api) {
+ console.log('User successfully subscribed');
+ }]);
+</script>
+					<a class="button2" href="#">Do nothing</a></div>
 						</div>
 			    
 						<div class="hero-figure anime-element">
