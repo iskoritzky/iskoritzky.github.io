@@ -1,0 +1,7 @@
+{
+  "name": "PushMe",
+  "short_name": "PushMe",
+  "gcm_sender_id": "709411143351",
+  "display": "standalone",
+  "gcm_user_visible_only": true
+}
