@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+	<link rel="manifest" href="/manifest.json">
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript">
+var Pushwoosh = Pushwoosh || [];
+Pushwoosh.push(['init', {
+    logLevel: 'info', // possible values: error, info, debug
+    applicationCode: '5D745-7D819', // you application code from Pushwoosh Control Panel
+    safariWebsitePushID: 'web.com.example.domain', //  unique reverse-domain string, obtained in you Apple Developer Portal. Only needed if you send push notifications to Safari browser
+    defaultNotificationTitle: 'Hello there', // sets a default title for push notifications
+    defaultNotificationImage: 'https://www.guidedogs.org/wp-content/uploads/2018/01/Mobile.jpg', // URL to custom custom notification image
+    autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
+    subscribeWidget: {
+      enabled: true
+    },
+    userId: 'user_id', // optional, set custom user ID
+    tags: {
+        'Name': 'John Smith'   	// optional, set custom Tags
+    }										
+}]);
+</script>
+<button onclick="Pushwoosh.subscribe()">Subscribe</button>
+<script>
+ Pushwoosh.push(['onSubscribe', function(api) {
+ console.log('User successfully subscribed');
+ }]);
+</script>
+	
 <link rel='icon' href='iskoritzky.github.io/favicon.ico' type='image/x-icon'/ >
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Solid Template</title>
+    <title>Push.me</title>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css">
 	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
@@ -34,8 +61,9 @@
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Hello psi</h1>
 	                        <p class="hero-paragraph">this a test site</p>
-	                        <div class="hero-cta"><a class="button button-primary" href="#">Push me</a><a class="button" href="#">touch me</a></div>
+	                        <div class="hero-cta"><a class="button button-primary" href="#">Subscribe</a><a class="button" href="#">Do nothing</a></div>
 						</div>
+			    
 						<div class="hero-figure anime-element">
 							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
 								<rect width="528" height="396" style="fill:transparent;" />
