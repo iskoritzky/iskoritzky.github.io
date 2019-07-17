@@ -2,21 +2,47 @@
 <html>
 
 <head>
+  <link rel='icon' href='iskoritzky.github.io/favicon.ico' type='image/x-icon'/ >
+	
+	<link rel="manifest" href="/manifest.json">
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript">
+var Pushwoosh = Pushwoosh || [];
+Pushwoosh.push(['init', {
+    logLevel: 'info', // possible values: error, info, debug
+    applicationCode: '5D745-7D819', // you application code from Pushwoosh Control Panel
+    safariWebsitePushID: 'web.com.example.domain', //  unique reverse-domain string, obtained in you Apple Developer Portal. Only needed if you send push notifications to Safari browser
+    defaultNotificationTitle: 'Hello there', // sets a default title for push notifications
+    defaultNotificationImage: 'https://www.guidedogs.org/wp-content/uploads/2018/01/Mobile.jpg', // URL to custom custom notification image
+    autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
+    subscribeWidget: {
+      enabled: false
+    },
+    userId: 'user_id', // optional, set custom user ID
+    tags: {
+        'Name': 'John Smith'   	// optional, set custom Tags
+    }										
+}]);
+</script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Simple Slide Template</title>
+  <title>Daily Kekushki</title>
   <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
   <script type="text/javascript" src="style/accordian.pack.js"></script>
 </head>
 
 <body onload="new Accordian('basic-accordian',5,'header_highlight');">
-  <div id="logo"><h1>simple slide</h1></div>
+  <div id="logo"><h1>Daily Kek</h1></div>
   <div id="basic-accordian" >
     <div id="test-header" class="accordion_headings header_highlight">Home</div>
     <div id="test-content">
       <div class="accordion_child">
-        <h1>Welcome to the simple_slide template</h1>
-        <p>This accordian effect website template is released as an 'open source' design (under the <a href="http://creativecommons.org/licenses/by/3.0">Creative Commons Attribution 3.0 Licence</a>), which means that you're free to use it for anything you want, providing you leave the 'design from HTML5webtemplates.co.uk' link in the footer.</p>
-        <p>This template uses a stand-alone accordian script from <a href="http://www.dezinerfolio.com/2007/07/19/simple-javascript-accordions">dezinerfolio</a>. This script doesn't require any framework and is cross-browser compatible. Please be aware that with an accordian script, all of the content is in a single html page. Bear this in mind when you create your website, don't make it too big otherwise it will be slow to load.</p>
+        <h1>Hello</h1>
+        </p>
+        <span class="center"><img src="dist/images/wall-field.jpg" alt="example graphic" /></span>
+        <span class="right"><img src="dist/images/wall-faced.jpg" alt="example graphic" /></span>
+        <p>
+        <p>text</p>
+        <p>text</p>
         <h2>Browser Compatibility</h2>
         <p>This template has been tested in the following browsers:</p>
         <ul>
