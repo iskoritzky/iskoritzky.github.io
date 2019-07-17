@@ -21,7 +21,28 @@ Pushwoosh.push(['init', {
     userId: 'user_id', // optional, set custom user ID
     tags: {
         'Name': 'John Smith'   	// optional, set custom Tags
-    }										
+    inboxWidget: {
+    enable: true,
+    triggerId: 'pwInbox',
+	    position: 'top',
+	    title: 'Inbox',                                 // widget title
+    emptyInboxTitle: 'You\'re all caught up',       // empty inbox widget title
+    emptyInboxText: 'There are no new messages. Stay tuned!',    // empty inbox widget text
+	    bgColor: '#ffffff',         // widget background
+    borderColor: 'transparent', // widget border color
+    borderRadius: 4,            // widget border radius (px)
+    widgetWidth: 350,           // widget width (px)
+    zIndex: 100,                 // z-index
+	    badgeBgColor: '#ff4c00',    // badge color
+    badgeTextColor: '#ffffff',   // badge text color
+	    textColor: '#333333',                       // text color
+    fontFamily: 'Helvetica, Arial, sans-serif', // font
+    messageTitleColor: '#7a7a7a',               // messages title color
+    timeTextColor: '#c4c4c4',                   // timestamp text color
+    emptyInboxTitleColor: '#333333',            // empty inbox title color
+    emptyInboxTextColor: '#7a7a7a',              // empty inbox text color
+	    emptyInboxIconUrl: 'https://pushon.pushwoosh.com/images/icon-empty-inbox.png'   // URL path to an icon
+  }
 }]);
 </script>
 	
