@@ -1,4 +1,4 @@
-# Solid
+# Evelyn
 
 A landing page template.
 

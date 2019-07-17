@@ -5,6 +5,8 @@
             @include font-size(8, desktop, true, true, true);
         }
     }
+    color: color(typography, 3);
+    border-top: 1px solid color(bg, 3);
 
     a {
         @include anchor-aspect(footer);
@@ -15,8 +17,8 @@
     position: relative; /* To display all elements above the background color */
     display: flex;
     flex-wrap: wrap;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .footer-brand,
@@ -35,14 +37,21 @@
     margin-bottom: 24px;
 }
 
+.footer-links,
+.footer-social-links {
+
+    li {
+
+        + li {
+            margin-left: 16px;
+        }
+    }
+}
+
 .footer-social-links {
 
     li {
         display: inline-flex;
-
-		+ li {
-			margin-left: 16px;
-		}
 
         a {
             padding: 8px;
@@ -50,26 +59,10 @@
     }
 }
 
-.footer-links {
-
-    li {
-
-        + li {
-            margin-left: 24px;
-        }
-    }
-}
-
 @include media( '>medium' ) {
-
-	.site-footer {
-		margin-top: 20px;
-	}
 
     .site-footer-inner {
         justify-content: space-between;
-		padding-top: 64px;
-		padding-bottom: 64px;
     }
 
     .footer-brand,
