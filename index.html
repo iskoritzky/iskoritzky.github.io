@@ -8,19 +8,46 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
 
+  <script type="text/javascript" src="https://cdn.pushwoosh.com/facebooksdk/pw-PWSDK.js"></script>
+    
+    <script type="text/javascript">
+var PWSDK = PWSDK || [];
+
+PWSDK.push({
+  cmd: 'init',
+  applicationCode: '9F3AE-A3095',
+  ASCPageId: 116609073049255
+});
+</script> 
+    
   <script type="text/javascript">
 
     function updateCart() {
       console.log('update cart ' + getProductCount() + ' products');
+      
+      PWSDK.push({
+    cmd: 'cartUpdated',
+    totalPrice: 400, // Total cart cost (may include delivery or any other additional payments) 
+    cartUrl: "window.location.href", // link to the checkout page 
+    products: getProducts()
+});
+
     }
 
     function clearCart() {
-
+PWSDK.push({
+    cmd: 'cartCleared'
+});
     }
 
     function checkoutCart() {
       console.log('checkout cart');
-      let productCount = getProductCount();
+      
+      PWSDK.push({
+    cmd: 'purchaseCompleted',
+    totalPrice: 400, // Total cart cost (may include delivery or any other additional payments)
+    products: getProducts()
+});
     }
 
     function getProductCount() {
@@ -76,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div id="AbandonCartCheckbox_11917" data-shopmsg-plugin="11917"></div>
+      <div class='pwasc-container'></div>  
       <p><button type="button" class="btn btn-outline-success" onclick="updateCart()">Update cart</button></p>
       <p><button type="button" class="btn btn-outline-success" onclick="clearCart()">Clear cart</button></p>
       <p><button type="button" class="btn btn-outline-success" onclick="checkoutCart()">Checkout cart</button></p>
