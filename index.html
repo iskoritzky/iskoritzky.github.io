@@ -8,44 +8,51 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="https://cdn.pushwoosh.com/facebooksdk/pw-PWSDK.js"></script>
-    
-    <script type="text/javascript">
-var PWSDK = PWSDK || [];
+<script type="text/javascript" src="https://cdn.pushwoosh.com/facebooksdk/pw-PWSDK.js"></script>
 
+<script type="text/javascript">
+var PWSDK = PWSDK || [];
 PWSDK.push({
-  cmd: 'init',
-  applicationCode: '9F3AE-A3095',
-  ASCPageId: 116609073049255
+  cmd: 'init', // required
+  applicationCode: '9F3AE-A3095', //required (string)
+  ASCPageId: 116609073049255, //required (string | number)
+
+  // customization params
+  userId: null, // optional (string | number)
+  language: 'es_US', // optional (string) - https://developers.facebook.com/docs/internationalization/
+  ASCSize: 'large', // optional ('small' | 'medium' | 'large' | 'standard' | 'xlarge')
+  ASCSkin: 'light', // optional ('light' | 'dark')
+  ASCAlignCenter: false, // optional (boolean)
+  ASCAllowLogin: true, // optional (boolean)
+  ASCContainerClass: 'pwasc-container' // optional (string)
 });
 </script> 
-    
+
   <script type="text/javascript">
 
     function updateCart() {
       console.log('update cart ' + getProductCount() + ' products');
-      
+
       PWSDK.push({
     cmd: 'cartUpdated',
-    totalPrice: 400, // Total cart cost (may include delivery or any other additional payments) 
-    cartUrl: "window.location.href", // link to the checkout page 
+    totalPrice: 350, // Total cart cost (may include delivery or any other additional payments) 
+    cartUrl: window.location.href, // link to the checkout page 
     products: getProducts()
 });
-
     }
 
     function clearCart() {
-PWSDK.push({
+      PWSDK.push({
     cmd: 'cartCleared'
 });
     }
 
     function checkoutCart() {
       console.log('checkout cart');
-      
+     
       PWSDK.push({
     cmd: 'purchaseCompleted',
-    totalPrice: 400, // Total cart cost (may include delivery or any other additional payments)
+    totalPrice: 350, // Total cart cost (may include delivery or any other additional payments)
     products: getProducts()
 });
     }
@@ -103,7 +110,7 @@ PWSDK.push({
           </div>
         </div>
       </div>
-      <div class='pwasc-container'></div>  
+      <div class='pwasc-container'></div> 
       <p><button type="button" class="btn btn-outline-success" onclick="updateCart()">Update cart</button></p>
       <p><button type="button" class="btn btn-outline-success" onclick="clearCart()">Clear cart</button></p>
       <p><button type="button" class="btn btn-outline-success" onclick="checkoutCart()">Checkout cart</button></p>
